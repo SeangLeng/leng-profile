@@ -9,15 +9,20 @@ import {Form, Formik, ErrorMessage, Field} from "formik";
 import * as Yup from 'yup';
 
 export default async function Home() {
-    const validation = Yup.object({name: Yup.string().required("Username can not be blank"), email: Yup.string().email("Invalid email address"), address: Yup.string().required("Address cannot be blank"), description: Yup.string().required("Say something for your interest in this field")})
+    const validationSchema = Yup.object({
+        name: Yup.string().required("Username can not be blank"),
+        email: Yup.string().email("Invalid email address"),
+        address: Yup.string().required("Please enter a valid address"), 
+        description: Yup.string().required("Please enter a description")
+    })
     const postUsers = (user) => {
-        fetch("http://localhost:8080/userSent/responseMessage", {
+        fetch("https://localhost:8080/api/v1/responseMessage/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(user)
-        }).then(response => response.json()).then(response => console.log(response));
+        }).then(response => response.json()).then(response => console.log(response)); 
     }
     return (
         <main data-aos="fade-up" data-aos-anchor=".other-element" className="content flex min-h-screen flex-col items-center jus  tify-between p-20">
@@ -153,7 +158,7 @@ export default async function Home() {
                 </div>
                 <div className='part'>
                     <Image src={contact}
-                        alt=''
+                        alt='contact image  '
                         id='image'/>
                 </div>
             </section>
@@ -165,52 +170,51 @@ export default async function Home() {
                 </div>
                 <div className='form-part'>
                     <p className='font-semibold text-2xl'>Connect me</p>
-                    <Formik initialValues={
-                            {
-                                name: "",
-                                email: "",
-                                address: "",
-                                description: ""
-                            }
-                        }
-                        validationSchema={validation}
-                        onSubmit={
-                            (values, {setSubmitting}) => {
-                                setTimeout(() => {
-                                    alert(JSON.stringify(values, null, 2));
-                                    setSubmitting(false);
-                                    postUsers(values);
-                                }, 400);
-
-                            }
-                    }>
-                        {
-                        ({isSubmitting}) => (
-                            <Form>
-                                <div className="mb-3">
-                                    <Field type="text" name="name" className="form-control"/>
-                                    <ErrorMessage name="name" className="text-danger"/>
-                                </div>
-                                <div className="mb-3">
-                                    <Field type="email" name="email" className="form-control"/>
-                                    <ErrorMessage name="email"/>
-                                </div>
-                                <div className="mb-3">
-                                    <Field type="text" name="address" className="form-control"/>
-                                    <ErrorMessage name="address"/>
-                                </div>
-                                <div className="mb-3">
-
-                                    <Field as="textarea" type="text" name="description" className="form-control"/>
-                                    <ErrorMessage name="role"/>
-                                </div>
-                                <button className="btn bg-success text-white" type="submit"
-                                    disabled={isSubmitting}>
-                                    Send
-                                </button>
-                            </Form>
-                        )
-                    } </Formik>
+                    <Formik
+                initialValues={{
+                    name: "",
+                    email: "",
+                    address: "", 
+                    description: ""
+                }}
+                validationSchema={validationSchema}
+                onSubmit={(values, {setSubmitting}) => {
+                    // execute function to server
+                    setTimeout(() => {
+                        alert(JSON.stringify(values, null, 2));
+                        setSubmitting(false);
+                        postUsers(values);
+                    }, 400);
+                    
+                }}
+            >
+                {
+                    ({isSubmitting}) => (
+                        <Form>
+                            <div className="mb-3">
+                                <Field type="text" name="name" placeholder="Your name" className="w-full"/>
+                                <ErrorMessage name="name" className='text-orange-600'/>
+                            </div>
+                            <div className="mb-3">
+                                <Field type="email" name="email"placeholder="Your email" className="w-full"/>
+                                <ErrorMessage name="email" className='text-orange-600' />
+                            </div>
+                            <div className="mb-3">
+                                <Field type="text" name="address" placeholder="Your address" className="w-full"/>
+                                <ErrorMessage name="address" className='text-orange-600' />
+                            </div>
+                            <div className="mb-3">
+                            
+                                <Field as="textarea" name="description" type="text" placeholder="Typing!" className="w-full"/>
+                                <ErrorMessage name="description" className='text-orange-600' />
+                            </div>
+                            <button className="text-black" type="submit" disabled={isSubmitting}>
+                                Submit
+                            </button>
+                        </Form>
+                    )
+                }
+            </Formik>
                 </div>
             </section>
         </main>
