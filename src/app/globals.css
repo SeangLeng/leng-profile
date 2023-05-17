@@ -1,0 +1,220 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400&display=swap');
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+* {
+  scroll-behavior: smooth;
+  font-family: 'Inria Sans', sans-serif;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.skills,
+.Website-project,
+.Development {
+  background: rgba(229, 229, 229, 0.3);
+  color: black;
+  width: 30%;
+}
+
+section {
+  width: 100%;
+}
+
+.about {
+  border-top: 2px solid black;
+  padding: 10px;
+  width: 100%;
+  border-bottom: 2px solid black;
+  margin-top: 5rem;
+  font-size: 48px;
+}
+
+.text {
+  width: 40%;
+}
+
+.image-profile {
+  width: 48%;
+}
+
+.leng-skills {
+  width: 48%;
+}
+
+.image-profile img {
+  object-fit: contain;
+}
+
+.background-profile-skill {
+  width: 73%;
+  margin-top: -6rem;
+}
+
+.rating {
+  width: 100%;
+  background: #D9D9D9;
+  height: 34px;
+  border-radius: 20px;
+  position: relative;
+}
+
+.rating::after {
+  content: '';
+  position: absolute;
+  width: 85%;
+  height: 100%;
+  background: #FF5C00BD;
+  border-radius: 20px;
+}
+
+.frontend-framework .rating::after {
+  width: 70%;
+}
+
+.backend .rating::after {
+  width: 70%;
+}
+
+.database .rating::after {
+  width: 90%;
+}
+
+.part {
+  width: 48%;
+}
+
+.part #image {
+  width: 80%;
+}
+
+.part ul {
+  list-style-type: disc;
+  padding: 2.4rem;
+}
+
+.form-part {
+  width: 48%;
+}
+
+.form-image {
+  width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+form input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  transition: 1s;
+}
+form input:focus {
+  border: none !important;
+  border-width: 0;
+  outline: none !important;
+}
+form textarea {
+  
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  height: 10rem;
+}
+@media only screen and (max-width: 620px){
+  main {
+    padding: 10% !important;
+  }
+  .multiskills {
+    margin-top: 2rem;
+  }
+}
+@media only screen and (max-width: 1000px) {
+
+  .skills,
+  .Website-project,
+  .Development {
+    width: 100%;
+  }
+
+  .multiskills {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .multiskills img {
+    margin: auto;
+  }
+
+  .text {
+    width: 90%;
+  }
+
+  .aboutme {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .aboutme #image {
+    margin-top: 30px;
+  }
+
+  .skill-part {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .leng-skills {
+    width: 100%;
+  }
+
+  .image-profile {
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+
+  .image-profile img {
+    margin: auto;
+  }
+
+  #contact {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #contact .part {
+    width: 100%;
+  }
+
+  #getInTouch {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-part {
+    width: 100%;
+  }
+}
