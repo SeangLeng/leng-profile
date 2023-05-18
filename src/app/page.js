@@ -191,25 +191,25 @@ export default async function Home() {
                 {
                     ({isSubmitting}) => (
                         <Form>
-                            <div className="mb-3">
+                            <div className="mb-3text-red-600">
                                 <Field type="text" name="name" placeholder="Your name" className="w-full"/>
-                                <ErrorMessage name="name" className='text-orange-600'/>
+                                <ErrorMessage name="name"/>
                             </div>
-                            <div className="mb-3">
+                            <div className="mb-3 text-red-600">
                                 <Field type="email" name="email"placeholder="Your email" className="w-full"/>
-                                <ErrorMessage name="email" className='text-orange-600' />
+                                <ErrorMessage name="email"/>
                             </div>
-                            <div className="mb-3">
+                            <div className="mb-3 text-red-600">
                                 <Field type="text" name="address" placeholder="Your address" className="w-full"/>
-                                <ErrorMessage name="address" className='text-orange-600' />
+                                <ErrorMessage name="address"/>
                             </div>
-                            <div className="mb-3">
+                            <div className="mb-3 text-red-600">
                             
                                 <Field as="textarea" name="description" type="text" placeholder="Typing!" className="w-full"/>
-                                <ErrorMessage name="description" className='text-orange-600' />
+                                <ErrorMessage name="description"/>
                             </div>
-                            <button className="text-black" type="submit" disabled={isSubmitting}>
-                                Submit
+                            <button className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800" type="submit" disabled={isSubmitting}>
+                                <span className="relative px-5 py-2.5 transition-all ease-in duration-75  text-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">Submit</span>
                             </button>
                         </Form>
                     )
