@@ -5,6 +5,7 @@ import leng_image from './Images/leng-exam.png'
 import skill_image from './Images/skillsbackground.png'
 import contact from './Images/contact.png'
 import form_image from './Images/form-image.png'
+import profile_image from './Images/profile.jpg'
 import {Form, Formik, ErrorMessage, Field} from "formik";
 import * as Yup from 'yup';
 
@@ -30,7 +31,7 @@ export default async function Home() {
                 <span className='text-orange-600'>LENG</span>
             </p>
             <p className='mt-2 text-2xl mb-10 text-gray-400'>Full-Stack web developer</p>
-            <img src="https://z-p3-scontent.fpnh5-4.fna.fbcdn.net/v/t39.30808-6/329835809_735322284655079_3345566267683874665_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGDKM0rLosNjEgzcn51JLUQlsYWsTy7q3aWxhaxPLurdghLgugRx1rSwWpgd9aI4kszaopKRdTL1WmvmsdoRZsr&_nc_ohc=hHgVwgMayZcAX-rhLxj&_nc_zt=23&_nc_ht=z-p3-scontent.fpnh5-4.fna&oh=00_AfD3xHLC1VRy9Ex-gJO8g9dH_Sdpgxq8aJ67G4KHrVAoLg&oe=6465BF33" alt="seangleng-profile" className='rounded-full'/>
+            <Image src={profile_image} alt="seangleng-profile" className='rounded-full'/>
             <div className='multiskills flex justify-between -mt-44 gap-10 w-full'>
                 <div className='skills p-5 rounded-2xl'>
                     <p className='text-2xl font-semibold text-center'>Skills</p>
